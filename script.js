@@ -1,6 +1,6 @@
 const questions = [
   {
-    question: "Which of the following correctly declares a list in Python?",
+    question: "මෙහෙයුම් පද්දතියක් යනු කුමක්ද ? ",
     answers: [
       { text: "list = (1, 2, 3)", correct: false },
       { text: "list = [1, 2, 3]", correct: true },
