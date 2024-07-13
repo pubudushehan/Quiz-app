@@ -1,0 +1,22 @@
+I am creating a project. I am creating a website and it is for students. Students who wish to appear for the advanced level exam 
+can register on the website and appear for the pastpaper exam questions. Also they can appear for Model papers (guessing questions). 
+Here I first hope to develop this so that student can appear for MCQ quiz. Here, the students get the relevant number of questions 
+and selectable answers within a given time. During that time they can mark the answers and finally check their marks and mistakes. 
+If you mark the answers before the relevant time, you can finish the quiz and check the marks. Here, to select a question paper, 
+you get the opportunity to select the year of the question paper of your stream. There is a separate section for choosing and doing 
+Model papers (guessing questions). I hope to design this using JavaScript, HTML, Jason, CSS. Looking to use a database like Mongo later.
+
+
+
+
+I am creating a project. I am creating a website and it is for students. Students who wish to appear for the advanced level exam 
+can register on the website and appear for the pastpaper exam questions. Also they can appear for Model papers (guessing questions). 
+Here I first hope to develop this so that student can appear for MCQ quiz. Here, the students get the relevant number of questions 
+and selectable answers within a given time. During that time they can mark the answers and finally check their marks and mistakes. 
+If you mark the answers before the relevant time, you can finish the quiz and check the marks. Here, to select a question paper, 
+you get the opportunity to select the year of the question paper of your stream. There is a separate section for choosing and doing 
+Model papers (guessing questions). I hope to design this using JavaScript, HTML, Jason, CSS. Looking to use a database like Mongo later. 
+i am developing suitable codes for that project. now i want your help for create my UI design. now read this project idea pay attension and 
+understand it well. after that i give you to my CSS, js, html codes for get idea about my project current state. you must give code based on 
+my current code. clearly give what part i must change. here i give picture for my UI design creat using by figma. you want to develop it. 
+now i give you to my codes one by one. understand the code and send me message like i understand. only say i understand.

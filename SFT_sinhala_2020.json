@@ -1,0 +1,12 @@
+[
+    {
+        "title": "What is the capital of Italy?",
+        "answers": ["Rome", "Paris", "Berlin", "Madrid"],
+        "correct": 0
+    },
+    {
+        "title": "Which planet is known as the Blue Planet?",
+        "answers": ["Mars", "Earth", "Jupiter", "Venus"],
+        "correct": 1
+    }
+]
