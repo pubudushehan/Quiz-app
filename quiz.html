@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Quiz Portal</h1>
+        <div id="timer" style="display: none;">Time left: <span id="time">60</span> seconds</div>
+        <div id="quiz-container" style="display: none;">
+            <h2 id="question-title"></h2>
+            <ul id="answers-list"></ul>
+            <button id="next-question" onclick="nextQuestion()">Next Question</button>
+        </div>
+        <div id="result-container" style="display: none;">
+            <h2>Your Results</h2>
+            <p id="score"></p>
+            <p id="mistakes"></p>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+        <button id="start-quiz">Start Quiz</button>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+
+</html>

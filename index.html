@@ -4,26 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
+    <title>Paper Selection</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="Conteiner">
-        <h1>Python Quiz</h1>
-        <div class="quiz">
-            <h2 id="question">Question one</h2>
-            <div id="answer-buttons">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Practice</a></li>
+                <li><a href="#">Progress</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Choose Your MCQ Paper Here</h1>
+        <form id="paper-selection-form">
+            <div class="form-group">
+                <label for="subject">Select the Subject:</label>
+                <select id="subject" name="subject">
+                    <option value="SFT">Science for Technology </option>
+                    <option value="ET">Engineering Technology </option>
+                    <option value="ICT">Information & Communication Technology </option>
+                </select>
             </div>
-            <btton id="next-btn">Next</btton>
-        </div>
 
+            <div class="form-group">
+                <label for="medium">Select the Medium:</label>
+                <select id="medium" name="medium">
+                    <option value="sinhala">Sinhala</option>
+                    <option value="English">English</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Exam Year:</label>
+                <select id="year" name="year">
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <!-- Add more years as needed -->
+                </select>
+            </div>
+
+            <div class="form-buttons">
+                <button type="reset">Clear</button>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div class="results">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Medium</th>
+                        <th>Year</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Science for Technology</td>
+                        <td>Sinhala</td>
+                        <td>2019</td>
+                        <td><button class="attempt-button">Attempt now</button></td>
+                    </tr>
+                    <!-- Add more rows dynamically based on search results -->
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="selection.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,12 @@
+[
+    {
+        "title": "What is the capital of Germany?",
+        "answers": ["Berlin", "Paris", "Rome", "Madrid"],
+        "correct": 0
+    },
+    {
+        "title": "Which planet is the largest in the Solar System?",
+        "answers": ["Earth", "Mars", "Jupiter", "Venus"],
+        "correct": 2
+    }
+]
