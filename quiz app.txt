@@ -20,3 +20,17 @@ i am developing suitable codes for that project. now i want your help for create
 understand it well. after that i give you to my CSS, js, html codes for get idea about my project current state. you must give code based on 
 my current code. clearly give what part i must change. here i give picture for my UI design creat using by figma. you want to develop it. 
 now i give you to my codes one by one. understand the code and send me message like i understand. only say i understand.
+
+
+
+yah yah that is good understanding. remember that i already created 3 json files such as pastpaper_2019.json, pastpaper_2020.json, pastpaper_2021.json. 
+student select what paper he want. i dont give you to json files because it has questions only. now i give you to codes one by one. you must understand 
+and say like i understand. 1. index.html
+
+
+
+now you must create UI for quiz section. i give to you my UI design picture and you must implement it. write complete code with already existing codes. 
+in this section question is display. and after give answers dont use ration button do it as picture. and right side of the page show all the question 
+numbers and it mark when we done that question. and also using this part student can jump to another question directly. and also put the previous button 
+and next button. top of the page time is displayed. you can see it in picture. after doing all the questions they can submit their answers.. Update the 
+existing code only. Don't miss the essential parts of the existing code because I will replace your code on top of mine.
