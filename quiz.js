@@ -3,30 +3,27 @@ let currentQuestionIndex = 0;
 let score = 0;
 let mistakes = 0;
 let timer;
-let timeLeft = 60;
-
-loadQuestions();
-
-document.getElementById('start-quiz').addEventListener('click', startQuiz);
+let timeLeft = 3600; // 60 minutes for the quiz
 
 // Retrieve selected year and type from local storage
 const selectedYear = localStorage.getItem('selectedYear');
-const selectedsubject = localStorage.getItem('selectedsubject');
-const selectedmedium = localStorage.getItem('selectedmedium');
+const selectedSubject = localStorage.getItem('selectedsubject');
+const selectedMedium = localStorage.getItem('selectedmedium');
 
-if (selectedYear && selectedsubject && selectedmedium) {
-    loadQuestions(selectedsubject, selectedmedium, selectedYear);
+if (selectedYear && selectedSubject && selectedMedium) {
+    loadQuestions(selectedSubject, selectedMedium, selectedYear);
 } else {
-    console.error('Year and type not selected');
+    console.error('Year, subject, and medium not selected');
 }
 
 function loadQuestions(subject, medium, year) {
-    const filePath = `${subject}_${medium}_${year}.json`; // Assuming your files are named like "pastpaper_2019.json"
+    const filePath = `${subject}_${medium}_${year}.json`; // Assuming your files are named like "subject_medium_year.json"
     fetch(filePath)
         .then(response => response.json())
         .then(data => {
             questions = data;
             console.log(questions); // Debugging: Check if questions are loaded correctly
+            initializeQuestionNumbers();
         })
         .catch(error => console.error('Error fetching questions:', error));
 }
@@ -46,12 +43,14 @@ function showQuestion() {
         const answersList = document.getElementById('answers-list');
         answersList.innerHTML = '';
         question.answers.forEach((answer, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `<input type="radio" name="answer" value="${index}" id="answer${index}"> 
-                            <label for="answer${index}">${answer}</label>`;
-            answersList.appendChild(li);
+            const div = document.createElement('div');
+            div.className = 'answer';
+            div.innerHTML = `
+                <input type="radio" name="answer" value="${index}" id="answer${index}">
+                <label for="answer${index}">${answer}</label>`;
+            answersList.appendChild(div);
         });
-        document.getElementById('next-question').style.display = 'inline';
+        markAnsweredQuestions();
     } else {
         submitQuiz();
     }
@@ -61,19 +60,33 @@ function nextQuestion() {
     const selectedAnswer = document.querySelector('input[name="answer"]:checked');
     if (selectedAnswer) {
         const answerIndex = parseInt(selectedAnswer.value);
-        if (answerIndex === questions[currentQuestionIndex].correct) {
+        questions[currentQuestionIndex].answered = true; // Mark as answered
+        questions[currentQuestionIndex].correctAnswer = (answerIndex === questions[currentQuestionIndex].correct);
+        if (questions[currentQuestionIndex].correctAnswer) {
             score++;
         } else {
             mistakes++;
         }
+        currentQuestionIndex++;
+        showQuestion();
+    } else {
+        alert('Please select an answer before proceeding.');
     }
-    currentQuestionIndex++;
-    showQuestion();
+}
+
+function previousQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion();
+    }
 }
 
 function updateTimer() {
     timeLeft--;
-    document.getElementById('time').innerText = timeLeft;
+    const hours = Math.floor(timeLeft / 3600);
+    const minutes = Math.floor((timeLeft % 3600) / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('time').innerText = `${hours}h : ${minutes}m : ${seconds}s`;
     if (timeLeft <= 0) {
         submitQuiz();
     }
@@ -92,10 +105,40 @@ function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     mistakes = 0;
-    timeLeft = 60;
+    timeLeft = 3600;
     document.getElementById('result-container').style.display = 'none';
     document.getElementById('start-quiz').style.display = 'inline';
     document.getElementById('timer').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'none';
+    initializeQuestionNumbers();
 }
 
-document.getElementById('start-quiz').addEventListener('click', startQuiz);
+function initializeQuestionNumbers() {
+    const questionNumbersContainer = document.getElementById('question-numbers');
+    questionNumbersContainer.innerHTML = '';
+    for (let i = 0; i < questions.length; i++) {
+        const button = document.createElement('button');
+        button.className = 'question-number bg-gray-200 text-gray-700 px-4 py-2 m-1 rounded hover:bg-gray-300';
+        button.innerText = i + 1;
+        button.addEventListener('click', () => {
+            currentQuestionIndex = i;
+            showQuestion();
+        });
+        questionNumbersContainer.appendChild(button);
+    }
+    markAnsweredQuestions();
+}
+
+function markAnsweredQuestions() {
+    const questionNumbers = document.getElementsByClassName('question-number');
+    for (let i = 0; i < questionNumbers.length; i++) {
+        if (questions[i].answered) {
+            questionNumbers[i].classList.add('answered');
+            if (questions[i].correctAnswer === false) {
+                questionNumbers[i].classList.add('locked');
+            }
+        } else {
+            questionNumbers[i].classList.remove('answered');
+        }
+    }
+}

@@ -5,74 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper Selection</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Downloads</a></li>
-                <li><a href="#">Practice</a></li>
-                <li><a href="#">Progress</a></li>
-                <li><a href="#">Contact</a></li>
+<body class="bg-gray-100 flex flex-col items-center">
+    <header class="w-full bg-gray-800 text-white shadow-md py-4">
+        <nav class="container mx-auto">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="#" class="hover:text-blue-400">Home</a></li>
+                <li><a href="#" class="hover:text-blue-400">Downloads</a></li>
+                <li><a href="#" class="hover:text-blue-400">Practice</a></li>
+                <li><a href="#" class="hover:text-blue-400">Progress</a></li>
+                <li><a href="#" class="hover:text-blue-400">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Choose Your MCQ Paper Here</h1>
-        <form id="paper-selection-form">
+    <div class="container mx-auto p-6 bg-white mt-8 shadow-lg rounded-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center">Choose Your Paper</h1>
+        <form id="paper-selection-form" class="space-y-4">
             <div class="form-group">
-                <label for="subject">Select the Subject:</label>
-                <select id="subject" name="subject">
-                    <option value="SFT">Science for Technology </option>
-                    <option value="ET">Engineering Technology </option>
-                    <option value="ICT">Information & Communication Technology </option>
+                <label for="subject" class="block text-lg">Select the Subject:</label>
+                <select id="subject" name="subject" class="w-full p-2 border rounded">
+                    <option value="SFT">Science for Technology</option>
+                    <option value="ET">Engineering Technology</option>
+                    <option value="ICT">Information & Communication Technology</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="medium">Select the Medium:</label>
-                <select id="medium" name="medium">
+                <label for="medium" class="block text-lg">Select the Medium:</label>
+                <select id="medium" name="medium" class="w-full p-2 border rounded">
                     <option value="sinhala">Sinhala</option>
                     <option value="English">English</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="year">Exam Year:</label>
-                <select id="year" name="year">
+                <label for="year" class="block text-lg">Exam Year:</label>
+                <select id="year" name="year" class="w-full p-2 border rounded">
                     <option value="2019">2019</option>
                     <option value="2020">2020</option>
                     <option value="2021">2021</option>
-                    <!-- Add more years as needed -->
                 </select>
             </div>
-
-            <div class="form-buttons">
-                <button type="reset">Clear</button>
-                <button type="submit">Search</button>
+            <div class="form-buttons flex justify-between mt-4">
+                <button type="reset" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Clear</button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Search</button>
             </div>
         </form>
-        <div class="results">
-            <table>
+        <div class="results mt-6">
+            <table class="w-full table-auto border-collapse">
                 <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Medium</th>
-                        <th>Year</th>
-                        <th></th>
+                    <tr class="bg-gray-200">
+                        <th class="border px-4 py-2">Subject</th>
+                        <th class="border px-4 py-2">Medium</th>
+                        <th class="border px-4 py-2">Year</th>
+                        <th class="border px-4 py-2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Science for Technology</td>
-                        <td>Sinhala</td>
-                        <td>2019</td>
-                        <td><button class="attempt-button">Attempt now</button></td>
+                    <tr class="bg-gray-100">
+                        <td class="border px-4 py-2">Science for Technology</td>
+                        <td class="border px-4 py-2">Sinhala</td>
+                        <td class="border px-4 py-2">2019</td>
+                        <td class="border px-4 py-2"><button class="attempt-button bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Attempt now</button></td>
                     </tr>
-                    <!-- Add more rows dynamically based on search results -->
                 </tbody>
             </table>
         </div>

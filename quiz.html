@@ -5,25 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Quiz Portal</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .locked {
+            background-color: #A0AEC0;
+            /* Locked color */
+            pointer-events: none;
+            /* Disable clicking */
+        }
+        
+        .answered {
+            background-color: #A3BFFA;
+            /* Answered color */
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Student Quiz Portal</h1>
-        <div id="timer" style="display: none;">Time left: <span id="time">60</span> seconds</div>
-        <div id="quiz-container" style="display: none;">
-            <h2 id="question-title"></h2>
-            <ul id="answers-list"></ul>
-            <button id="next-question" onclick="nextQuestion()">Next Question</button>
+<body class="bg-gray-100 flex flex-col items-center">
+    <div class="container mx-auto p-6 bg-white mt-8 shadow-lg rounded-lg flex">
+        <div class="w-3/4 pr-6">
+            <h1 class="text-3xl font-bold mb-6 text-center">Student Quiz Portal</h1>
+            <div id="timer" class="text-xl mb-4" style="display: none;">You have only <span id="time">0h : 0m : 60s</span></div>
+            <div id="quiz-container" style="display: none;">
+                <h2 id="question-title" class="text-2xl font-semibold mb-4"></h2>
+                <div id="answers-list" class="answers-list mb-4"></div>
+                <div class="navigation-buttons flex justify-between mt-4">
+                    <button id="previous-question" onclick="previousQuestion()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Previous</button>
+                    <button id="next-question" onclick="nextQuestion()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Next</button>
+                    <button id="finish-quiz" onclick="submitQuiz()" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Finish</button>
+                </div>
+            </div>
+            <div id="result-container" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Your Results</h2>
+                <p id="score" class="text-lg mb-2"></p>
+                <p id="mistakes" class="text-lg mb-4"></p>
+                <button onclick="restartQuiz()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Restart Quiz</button>
+            </div>
+            <button id="start-quiz" onclick="startQuiz()" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Start Quiz</button>
         </div>
-        <div id="result-container" style="display: none;">
-            <h2>Your Results</h2>
-            <p id="score"></p>
-            <p id="mistakes"></p>
-            <button onclick="restartQuiz()">Restart Quiz</button>
+        <div id="question-numbers" class="question-numbers w-1/4 flex flex-col items-center">
+            <!-- Question numbers will be dynamically added here -->
         </div>
-        <button id="start-quiz">Start Quiz</button>
     </div>
     <script src="quiz.js"></script>
 </body>
